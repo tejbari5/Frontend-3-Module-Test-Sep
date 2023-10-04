@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend-3-Module-Test-Sep</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section class="left">
-      <div class="heading">Post Office Application</div>
-      <div class="para">
-        This Application Allows you to extract information about the nearest
-        Post Offices, based on your location.
-      </div>
-      <img src="./assets/img.svg" alt="" class="img" />
-    </section>
-    <section class="right">
-      <div class="heading">
-        Your current ip address is <span id="ipaddress"></span>
-      </div>
-      <button type="button" onclick="window.location.href='./info.html'">
-        Get Started
-      </button>
-    </section>
-    <script>
-      document.body.onload = () => {
-        fetch("https://api.ipify.org/?format=json")
-          .then((res) => res.json())
-          .then(
-            (res) => (document.getElementById("ipaddress").innerText = res?.ip)
-          )
-          .catch((err) => console.log(err));
-      };
-    </script>
-  </body>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+    <div class="left-container" id="left-container">
+        <h1>Post Office Application</h1>
+        <p>This Application Allows you to extract information about 
+            <br>the nearest Post Offices, based on your location.</p>
+        <!-- <img class="image" src="./img/undraw_messenger_re_8bky 1.png" alt=""> -->
+        <center style="margin-top: 100px;">
+            <img src="./img/undraw_messenger_re_8bky 1.png" 
+            alt="what image shows" >
+        </center>
+    </div>
+
+            <!--        Right container-->
+        <div id="right-container">
+       <center >
+        <h1>Your Current IP Address is <span id="IP"></span></h1>
+        <button id="submit">GET STARTED</button>
+       </center>
+        </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
 </html>
