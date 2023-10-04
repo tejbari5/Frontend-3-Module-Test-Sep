@@ -1,52 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontend-3-Module-Test-Sep</title>
-    <script src=
-    "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-	</script>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <!-- Before clicking button -->
-    <div class="main">
-        <div class="left">
-            <h1>Post Office Application.</h1>
-            <p>
-              This Application Allows you to extract information about the nearest
-              Post Offices, based on your location.
-            </p>
-            <img src="./assets/undraw_messenger_re_8bky.png" alt="img">
-        </div>
-
-        <div class="right">
-            <button id="btn">Search Your IP Address</button>
-            <br>
-            <div class="ipAddress">
-                <h3>Your Current IP Address is : </h3>
-                <p id="gfg"></p>
-            </div>
-            <br>
-            <!-- <p id="abc"></p> -->
-            <button id="Search">Get Started</button>
-        </div>
-    </div>
-
-    <div class="wrapper">
-        <div class="loader">
-
-        </div>
-        <div class="loading">
-            <h1>Wait a second....</h1>
-        </div>
-    </div>
-
-    <!-- Script JS -->
-    <script src="script.js"></script>
-</body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="left">
+      <div class="heading">Post Office Application</div>
+      <div class="para">
+        This Application Allows you to extract information about the nearest
+        Post Offices, based on your location.
+      </div>
+      <img src="./assets/img.svg" alt="" class="img" />
+    </section>
+    <section class="right">
+      <div class="heading">
+        Your current ip address is <span id="ipaddress"></span>
+      </div>
+      <button type="button" onclick="window.location.href='./info.html'">
+        Get Started
+      </button>
+    </section>
+    <script>
+      document.body.onload = () => {
+        fetch("https://api.ipify.org/?format=json")
+          .then((res) => res.json())
+          .then(
+            (res) => (document.getElementById("ipaddress").innerText = res?.ip)
+          )
+          .catch((err) => console.log(err));
+      };
+    </script>
+  </body>
 </html>
